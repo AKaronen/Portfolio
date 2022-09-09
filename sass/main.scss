@@ -1,71 +1,114 @@
+@import "config";
+@import "menu";
 
-
-$primary: #444;
-$secondary: indigo;
-
-@mixin easeIn {
-    transition: all 0.1s ease-in;
+* {
+  box-sizing: border-box;
 }
 
-body {
-    background: $primary;
-    color: #fff;
-    height: 100%;
-    margin: 0;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5;
-}
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
 
-h1, h2, h3 {
-    margin: 0;
-    font-weight: 400;
-
-    &.lg-heading{
-        font-size: 6rem;
-
-    }
-    &.sm-heading{
-        margin-bottom: 2rem;
-        padding: 0.2rem 1rem;
-        background: rgba(lighten($primary, 2),0.5);
-    }
-}
-
-a {
-    color: white;
-    text-decoration: none;
-
+  &.lg-heading {
+    font-size: 6rem;
+  }
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: $bg-dark-lighter;
+  }
 }
 
 header {
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-}
-
-.text-secondary {
-    color: $secondary;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
+body {
+  background: $bg-dark;
+  color: $txt-dark;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: $txt-dark;
+  text-decoration: none;
+  border-radius: $radius;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2em $bg-dark, 0 0 0 0.4em $accent-dark;
+    color: $accent-dark;
+    @include easeIn();
+  }
+}
+
+.text-secondary {
+  color: $accent-dark;
+}
 
 main {
-    padding: 4rem;
-    height: 100%;
+  padding: 4rem;
+  height: 100%;
 
-    .icons {
-        margin-top: 1rem;
+  .icons {
+    margin-top: 1rem;
 
-        a {
-            padding: 0.4rem;
+    a {
+      border-radius: $radius;
+      padding: 0.4rem 0.1rem;
+      margin: 1rem;
+      color: $muted-dark;
+      &:focus {
+        outline: none;
+        box-shadow: -0.1em -0.1em 0 0.2em $bg-dark,
+          -0.1em -0.1em 0 0.4em $accent-dark;
+        color: $accent-dark;
+        @include easeIn();
+      }
 
-            &:hover {
-                color: $secondary;
-                @include easeIn();
-            }
-        }
+      &:hover {
+        color: $accent-dark;
+        @include easeIn();
+      }
     }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+.menu-btn {
+  .btn-line {
+    background: $muted-dark;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2em $bg-dark, 0 0 0 0.4em $accent-dark;
+    .btn-line {
+      background: $accent-dark;
+      @include easeIn;
+    }
+  }
+
+  &:hover {
+    .btn-line {
+      background: $accent-dark;
+      @include easeIn;
+    }
+  }
 }

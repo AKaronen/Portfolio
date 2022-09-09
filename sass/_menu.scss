@@ -1,0 +1,37 @@
+// Menu  Button
+
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  border-radius: $radius;
+  cursor: pointer;
+  @include easeIn;
+
+  .btn-line {
+    width: 28px;
+    height: 2px;
+    margin: 0 0 5px 0;
+  }
+
+  // Transform the hamburger menu icon into an X when menu is open
+  &.open {
+    transform: rotate(180deg);
+
+    .btn-line {
+      // rotates and moves the top line into one of the lines of X
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      //essentially hides the middle line
+      &:nth-child(2) {
+        transform: rotateY(90deg);
+      }
+      // rotates and moves the bottom line into the other line of the X
+      &:nth-child(3) {
+        transform: rotate(315deg) translate(5px, -5px);
+      }
+    }
+  }
+}

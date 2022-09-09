@@ -1,0 +1,20 @@
+// Themeing variables
+$hue: 100;
+$size: 1.5rem;
+$radius: 0.2em;
+$tspeed_fast: 150ms;
+$tspeed_slow: 300ms;
+$opacity: 0.2;
+
+@mixin easeIn {
+  transition: all $tspeed_slow ease-in;
+}
+
+// Dark theme
+
+$bg-dark: hsl($hue, 80%, 8%);
+$bg-dark-lighter: hsl($hue, 88%, 9%);
+$txt-dark: hsl($hue, 80%, 99%);
+$accent-dark: hsl($hue, 60%, 50%);
+$muted-dark: hsl($hue, 80%, 99%);
+$secondary-dark: hsl(calc(($hue)-195), 60%, 50%);
