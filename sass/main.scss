@@ -1,110 +1,110 @@
 @import "config";
 @import "menu";
+@import "responsive";
+//@import "tablet";
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 h1,
 h2,
 h3 {
-  margin: 0;
-  font-weight: 400;
+    margin: 0;
+    font-weight: 400;
 
-  &.lg-heading {
-    font-size: 6rem;
-  }
-  &.sm-heading {
-    margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
-    background: rgba($bg-dark, $opacity);
-  }
+    &.lg-heading {
+        font-size: 6rem;
+    }
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        background: rgba($bg-dark, $opacity);
+    }
 }
 
 header {
-  position: fixed;
-  z-index: 2;
-  width: 100%;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
 }
 
 body {
-  @include background;
-  color: $txt-dark;
-  height: 100%;
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
+    @include background;
+    color: $txt-dark;
+    height: 100%;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
 }
 
 a {
-  color: $txt-dark;
-  text-decoration: none;
-  border-radius: $radius;
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2em $bg-dark, 0 0 0 0.4em $accent-dark;
-    color: $accent-dark;
-    @include easeIn();
-  }
+    color: $txt-dark;
+    text-decoration: none;
+    border-radius: $radius;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2em $bg-dark, 0 0 0 0.4em $secondary-dark;
+        color: $secondary-dark;
+        @include easeIn;
+    }
 }
 
 .text-secondary {
-  color: $accent-dark;
+    color: $secondary-dark;
 }
 
 main {
-  padding: 4rem;
-  height: 100%;
+    padding: 4rem;
+    height: 100%;
 
-  .icons {
-    margin-top: 1rem;
+    .icons {
+        margin-top: 1rem;
 
-    a {
-      border-radius: $radius;
-      padding: 0.4rem 0.1rem;
-      margin: 1rem;
-      color: $muted-dark;
-      &:focus {
-        outline: none;
-        box-shadow: -0.1em -0.1em 0 0.2em $bg-dark,
-          -0.1em -0.1em 0 0.4em $accent-dark;
-        color: $accent-dark;
-        @include easeIn();
-      }
+        a {
+            border-radius: $radius;
+            padding: 0.4rem 0.1rem;
+            margin: 1rem;
+            color: $muted-dark;
+            &:focus {
+                outline: none;
+                box-shadow: -0.1em -0.1em 0 0.2em $bg-dark,
+                    -0.1em -0.1em 0 0.4em $secondary-dark;
+                color: $secondary-dark;
+                @include easeIn;
+            }
 
-      &:hover {
-        color: $accent-dark;
-        @include easeIn();
-      }
+            &:hover {
+                color: $secondary-dark;
+                @include easeIn;
+            }
+        }
     }
-  }
 
-  &#home {
-    overflow: hidden;
-    h1 {
-      margin-top: 20vh;
+    &#home {
+        overflow: hidden;
+        h1 {
+            margin-top: 20vh;
+        }
     }
-  }
 }
 
 .menu-btn {
-  .btn-line {
-    background: $muted-dark;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2em $bg-dark, 0 0 0 0.4em $accent-dark;
     .btn-line {
-      background: $accent-dark;
-      @include easeIn;
+        background: $muted-dark;
     }
-  }
 
-  &:hover {
-    .btn-line {
-      background: $accent-dark;
-      @include easeIn;
+    &:focus {
+        .btn-line {
+            background: $secondary-dark;
+            @include easeIn;
+        }
     }
-  }
+
+    &:hover {
+        .btn-line {
+            background: $secondary-dark;
+            @include easeIn;
+        }
+    }
 }

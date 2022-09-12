@@ -1,90 +1,99 @@
 // Menu  Button
 
 .menu-btn {
-  position: absolute;
-  z-index: 3;
-  right: 35px;
-  top: 35px;
-  border-radius: $radius;
-  cursor: pointer;
-  @include easeIn;
-
-  .btn-line {
-    width: 28px;
-    height: 2px;
-    margin: 0 0 5px 0;
-  }
-
-  // Transform the hamburger menu icon into an X when menu is open
-  &.open {
-    transform: rotate(180deg) translate(0, 10px);
-
-    .btn-line {
-      // rotates and moves the top line into one of the lines of X
-      &:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      //essentially hides the middle line
-      &:nth-child(2) {
-        transform: rotateY(90deg);
-      }
-      // rotates and moves the bottom line into the other line of the X
-      &:nth-child(3) {
-        transform: rotate(315deg) translate(5px, -5px);
-      }
-    }
-  }
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  opacity: 0.9;
-  visibility: hidden;
-
-  &.show {
-    visibility: visible;
-  }
-
-  &-nav {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column wrap;
-    height: 100%;
-    justify-content: left;
-    align-items: center;
-    list-style: none;
-    transform: translate3d(0, -100%, 0);
-    @include easeIn;
-
-    &.show {
-      background: darken($bg-dark, 4);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  .nav-item {
-    transform: translate3d(0, -100%, 0);
-    padding: $size;
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    top: 35px;
     cursor: pointer;
     @include easeIn;
 
-    &:hover {
-      @include easeIn;
-      opacity: calc($opacity * 1.5);
-      background: darken($bg-dark, 2);
+    .btn-line {
+        width: 28px;
+        height: 2px;
+        margin: 0 0 5px 0;
     }
 
-    &.show {
-      transform: translate3d(0, 0, 0);
+    // Transform the hamburger menu icon into an X when menu is open
+    &.open {
+        transform: rotate(180deg) translate(0, 10px);
+
+        .btn-line {
+            // rotates and moves the top line into one of the lines of X
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            //essentially hides the middle line
+            &:nth-child(2) {
+                transform: rotateY(90deg);
+            }
+            // rotates and moves the bottom line into the other line of the X
+            &:nth-child(3) {
+                transform: rotate(315deg) translate(5px, -5px);
+            }
+        }
     }
-  }
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
+    visibility: hidden;
+
+    &.show {
+        visibility: visible;
+    }
+
+    &-nav {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100%;
+        justify-content: left;
+        align-items: center;
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        @include easeIn;
+
+        &.show {
+            background: darken($bg-dark, 4);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .nav-item {
+        transform: translate3d(0, -100%, 0);
+        padding: $size;
+        cursor: pointer;
+        @include easeIn;
+
+        &:hover {
+            @include easeIn;
+            opacity: calc($opacity * 1.5);
+            background: darken($bg-dark, 2);
+            .nav-link {
+                color: $secondary-dark;
+            }
+        }
+
+        &.show {
+            transform: translate3d(0, 0, 0);
+        }
+        .nav-link {
+            @include easeIn;
+            text-transform: uppercase;
+            font-weight: 400;
+            text-decoration: none;
+        }
+    }
 }
 
 @for $x from 1 through 4 {
-  .nav-item:nth-child(#{$x}) {
-    transition-delay: $x * ($tspeed_slow/4);
-  }
+    .nav-item:nth-child(#{$x}) {
+        transition-delay: $x * ($tspeed_slow/4);
+    }
 }

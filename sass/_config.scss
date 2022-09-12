@@ -1,5 +1,5 @@
 // Themeing variables
-$hue: 250;
+$hue: 200;
 $size: 1.5rem;
 $radius: 0.2em;
 $tspeed_fast: 150ms;
@@ -15,6 +15,7 @@ $opacity: 0.5;
     background: url("../assets/images/pexels-pixabay-2150.jpg");
     background-size: cover;
     background-attachment: fixed;
+    background-position: center;
 
     &:after {
       content: "";
@@ -35,4 +36,24 @@ $bg-dark: hsl($hue, 80%, 8%);
 $txt-dark: hsl($hue, 80%, 99%);
 $accent-dark: hsl($hue, 60%, 50%);
 $muted-dark: hsl($hue, 80%, 99%);
-$secondary-dark: hsl(calc(($hue)-195), 60%, 50%);
+$secondary-dark: hsl(calc(#{$hue} - 200), 60%, 50%);
+
+@mixin mediaLg {
+  @media only screen and (min-width: 769px) {
+    @content;
+  }
+}
+
+// layout for tablets
+@mixin mediaMd {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+// layout for mobile
+@mixin mediaSm {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}
