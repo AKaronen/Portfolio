@@ -17,7 +17,7 @@ h3 {
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: $bg-dark-lighter;
+    background: rgba($bg-dark, $opacity);
   }
 }
 
@@ -27,12 +27,8 @@ header {
   width: 100%;
 }
 
-li {
-  list-style-type: none;
-}
-
 body {
-  background: $bg-dark;
+  @include background;
   color: $txt-dark;
   height: 100%;
   margin: 0;
