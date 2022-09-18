@@ -72,29 +72,6 @@
 .nav-item:nth-child(4) {
   transition-delay: 300ms; }
 
-@media only screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; } }
-
-@media only screen and (max-width: 768px) {
-  main {
-    align-items: center;
-    text-align: center; }
-    main .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem; }
-  .menu .menu-nav {
-    align-items: center;
-    justify-content: center;
-    float: none;
-    width: 100%;
-    height: 40vh;
-    display: flex;
-    flex-direction: column; }
-  .menu .nav-item {
-    width: 70%;
-    transform: translate3d(-768px, 0, 0); } }
-
 * {
   box-sizing: border-box; }
 
@@ -186,3 +163,53 @@ main {
 .menu-btn:hover .btn-line {
   background: hsl(calc(200 - 200), 60%, 50%);
   transition: all 300ms ease-in; }
+
+.about-info {
+  display: grid;
+  gap: 30px;
+  grid-template-areas: "bioimage bio bio" "job1 job2 job3";
+  grid-template-columns: repeat(3, 1fr); }
+  .about-info .bio-image {
+    grid-area: bioimage; }
+  .about-info .bio {
+    grid-area: bio; }
+  .about-info .job-1 {
+    grid-area: job1; }
+  .about-info .job-2 {
+    grid-area: job2; }
+  .about-info .job-3 {
+    grid-area: job3; }
+  .about-info .job {
+    min-height: 30vh;
+    background: rgba(4, 26, 37, 0.5);
+    padding: 1rem;
+    border-bottom: hsl(calc(200 - 200), 60%, 50%) 5px solid; }
+
+@media only screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  .menu .menu-nav {
+    align-items: center;
+    justify-content: center;
+    float: none;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column; }
+  .menu .nav-item {
+    width: 70%;
+    transform: translate3d(-768px, 0, 0); }
+  .about-info {
+    grid-template-areas: "bioimage bio" "job1 job2" "job3 job3";
+    grid-template-columns: repeat(2, 1fr); } }
+
+@media only screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; }
+  .about-info {
+    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
+    grid-template-columns: 1fr; } }

@@ -1,7 +1,5 @@
 @import "config";
 @import "menu";
-@import "responsive";
-//@import "tablet";
 
 * {
     box-sizing: border-box;
@@ -108,3 +106,41 @@ main {
         }
     }
 }
+
+.about-info {
+    display: grid;
+    gap: 30px;
+    grid-template-areas:
+        "bioimage bio bio"
+        "job1 job2 job3";
+
+    grid-template-columns: repeat(3, 1fr);
+
+    .bio-image {
+        grid-area: bioimage;
+    }
+
+    .bio {
+        grid-area: bio;
+    }
+
+    .job-1 {
+        grid-area: job1;
+    }
+
+    .job-2 {
+        grid-area: job2;
+    }
+    .job-3 {
+        grid-area: job3;
+    }
+
+    .job {
+        min-height: 30vh;
+        background: rgba($bg-dark, $opacity);
+        padding: 1rem;
+        border-bottom: $secondary-dark 5px solid;
+    }
+}
+
+@import "responsive";
